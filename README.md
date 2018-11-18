@@ -1,10 +1,8 @@
 # asar-node
 
-Enable require('./path/to/any-node-project.asar') & require('./path/to/any-node-project.asar/any/file') in your nodejs app.
+Enable `require('./path/to/any-node-project.asar')` & `require('./path/to/any-node-project.asar/any/file')` in your nodejs app.
 
 `asar-node` can not be used in Electron.
-
-Or just run `asar-node ./path/to/any-node-project.asar`
 
 ## Usage
 
