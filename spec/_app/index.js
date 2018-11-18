@@ -1,6 +1,12 @@
 console.log(`[index] ${__filename}`)
+console.log(1)
 console.log(require('nodemodule'))
-require('nodemodule/index')
+console.log(require('nodemodule/index'))
+console.log(require('nodemodule/index.js'))
+console.log(2)
+console.log(require('nodeaddon'))
+console.log(require('nodeaddon/index'))
+console.log(require('nodeaddon/index.node'))
 
 const fs = require('fs')
 const path = require('path')
