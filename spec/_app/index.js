@@ -1,5 +1,5 @@
 console.log(`[index] ${__filename}`)
-require('nodemodule')
+console.log(require('nodemodule'))
 require('nodemodule/index')
 
 const fs = require('fs')

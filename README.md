@@ -28,12 +28,16 @@ require('./path/to/any-node-project') // like require a nodejs directory
 require('./path/to/any-node-project.asar/any/file')
 ```
 
-If require a asar file, make sure there is `package.json` and `main` field or `index.js` in the asar root.
+If require a asar file, make sure there is `package.json` and `main` field or `index.js` / `index.json` / `index.node` in the asar root.
 
-**Note: Only these fs api functions are available and you should use absolute path. Also `child_process` api is not supported in asar file.**
+## Note
 
-* fs.readFileSync()
-* fs.createReadStream()
-* fs.statSync()
-* fs.existsSync()
-* fs.realpathSync()
+* **Only these fs api functions are available in asar file and you should use absolute path. Also `child_process` api is not supported in asar file.**
+
+  * fs.readFileSync()
+  * fs.createReadStream()
+  * fs.statSync()
+  * fs.existsSync()
+  * fs.realpathSync()
+
+* **If your nodejs project use C++ native addons, please unpack it from asar file by specifying `--unpack=*.node` to asar cli**
