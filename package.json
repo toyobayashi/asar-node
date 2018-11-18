@@ -1,0 +1,32 @@
+{
+  "name": "asar-node",
+  "version": "1.0.0",
+  "description": "Enable require('./path/to/any-node-project.asar') & require('./path/to/any-node-project.asar/any/file'). Or just run asar-node ./path/to/any-node-project.asar",
+  "bin": {
+    "asar-node": "bin/asar-node.js"
+  },
+  "scripts": {
+    "test": "asar p ./spec/_app ./spec/app.asar && asar p ./spec/_app-default-entry ./spec/app-default-entry.asar && asar p ./spec/_app-default-entry-error ./spec/app-default-entry-error.asar && asar p ./spec/_app-pkg-entry ./spec/app-pkg-entry.asar && asar p ./spec/_app-pkg-entry-error ./spec/app-pkg-entry-error.asar && node ./spec/index.js"
+  },
+  "main": "./index.js",
+  "license": "MIT",
+  "homepage": "https://github.com/toyobayashi/asar-node",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/toyobayashi/asar-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/toyobayashi/asar-node/issues"
+  },
+  "dependencies": {
+    "asar": "^0.14.5"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0"
+  }
+}
