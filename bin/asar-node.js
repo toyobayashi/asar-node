@@ -2,4 +2,4 @@
 
 const args = process.argv.slice(2)
 args.unshift('--require=..')
-require('child_process').spawnSync('node', args, { stdio: 'inherit' })
+require('child_process').spawnSync(process.argv0, args, { stdio: 'inherit' })

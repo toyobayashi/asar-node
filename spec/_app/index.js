@@ -1,4 +1,6 @@
 console.log(`[index] ${__filename}`)
+require('nodemodule')
+require('nodemodule/index')
 
 const fs = require('fs')
 const path = require('path')
