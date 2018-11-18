@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-require('child_process').spawnSync('node', process.argv.slice(1).unshift('--require=asar-node'), { stdio: 'inherit' })
+const args = process.argv.slice(2)
+args.unshift('--require=..')
+require('child_process').spawnSync('node', args, { stdio: 'inherit' })

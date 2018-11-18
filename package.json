@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "Enable require('./path/to/any-node-project.asar') & require('./path/to/any-node-project.asar/any/file'). Or just run asar-node ./path/to/any-node-project.asar",
   "bin": {
-    "asar-node": "bin/asar-node.js"
+    "asar-node": "./bin/asar-node.js"
   },
   "scripts": {
     "test": "asar p ./spec/_app ./spec/app.asar && asar p ./spec/_app-default-entry ./spec/app-default-entry.asar && asar p ./spec/_app-default-entry-error ./spec/app-default-entry-error.asar && asar p ./spec/_app-pkg-entry ./spec/app-pkg-entry.asar && asar p ./spec/_app-pkg-entry-error ./spec/app-pkg-entry-error.asar && node ./spec/index.js"
   },
   "main": "./index.js",
   "license": "MIT",
+  "author": "toyobayashi",
   "homepage": "https://github.com/toyobayashi/asar-node",
   "repository": {
     "type": "git",
