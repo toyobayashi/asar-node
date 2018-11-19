@@ -1,6 +1,6 @@
 {
   "name": "asar-node",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Enable require('./path/to/any-node-project.asar') & require('./path/to/any-node-project.asar/any/file'). Or just run asar-node ./path/to/any-node-project.asar",
   "bin": {
     "asar-node": "./bin/asar-node.js"
@@ -8,6 +8,10 @@
   "scripts": {
     "test": "asar p ./spec/_app --unpack=*.node ./spec/app.asar && asar p ./spec/_app-default-entry ./spec/app-default-entry.asar && asar p ./spec/_app-default-entry-json ./spec/app-default-entry-json.asar && asar p ./spec/_app-default-entry-node --unpack=*.node ./spec/app-default-entry-node.asar && asar p ./spec/_app-pkg-default-entry ./spec/app-pkg-default-entry.asar && asar p ./spec/_app-pkg-default-entry-json ./spec/app-pkg-default-entry-json.asar && asar p ./spec/_app-pkg-default-entry-node --unpack=*.node ./spec/app-pkg-default-entry-node.asar && asar p ./spec/_app-default-entry-error ./spec/app-default-entry-error.asar && asar p ./spec/_app-pkg-entry ./spec/app-pkg-entry.asar && asar p ./spec/_app-pkg-entry-error ./spec/app-pkg-entry-error.asar && node ./spec/index.js"
   },
+  "keywords": [
+    "asar",
+    "require"
+  ],
   "main": "./index.js",
   "license": "MIT",
   "author": "toyobayashi",

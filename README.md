@@ -2,8 +2,6 @@
 
 Enable `require('./path/to/any-node-project.asar')` & `require('./path/to/any-node-project.asar/any/file')` in your nodejs app.
 
-`asar-node` can not be used in Electron.
-
 ## Usage
 
 ``` bash
@@ -46,4 +44,5 @@ You can also pack `node_modules` into `node_modules.asar` instead of packing the
   * fs.existsSync()
   * fs.realpathSync()
 
-* **If your nodejs project use C++ native addons, please unpack it from asar file by specifying `--unpack=*.node` to asar cli**
+* **If your nodejs project use C++ native addons, please unpack it from asar file by specifying `--unpack=*.node` to [asar CLI](https://www.npmjs.com/package/asar)**
+* `asar-node` can not be used in Electron. It's unnecessary.
