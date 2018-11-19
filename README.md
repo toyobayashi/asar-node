@@ -45,4 +45,5 @@ You can also pack `node_modules` into `node_modules.asar` instead of packing the
   * fs.realpathSync()
 
 * **If your nodejs project use C++ native addons, please unpack it from asar file by specifying `--unpack=*.node` to [asar CLI](https://www.npmjs.com/package/asar)**
-* `asar-node` can not be used in Electron. It's unnecessary.
+* **Express or Koa serving static file in asar file is not supported, but you can unpack the static file folder.**
+* **`asar-node` can not be used in Electron. It's unnecessary.**
