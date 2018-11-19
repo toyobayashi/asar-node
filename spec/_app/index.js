@@ -3,10 +3,12 @@ console.log(1)
 console.log(require('nodemodule'))
 console.log(require('nodemodule/index'))
 console.log(require('nodemodule/index.js'))
-console.log(2)
-console.log(require('nodeaddon'))
-console.log(require('nodeaddon/index'))
-console.log(require('nodeaddon/index.node'))
+if (process.platform === 'win32') {
+  console.log(2)
+  console.log(require('nodeaddon'))
+  console.log(require('nodeaddon/index'))
+  console.log(require('nodeaddon/index.node'))
+}
 
 const fs = require('fs')
 const path = require('path')
