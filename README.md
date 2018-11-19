@@ -6,6 +6,10 @@ Enable `require('./path/to/any-node-project.asar')` & `require('./path/to/any-no
 
 ## Usage
 
+``` bash
+$ npm install -g asar-node
+```
+
 Exists `./path/to/any-node-project.asar`
 
 ``` bash
@@ -29,6 +33,8 @@ require('./path/to/any-node-project.asar/any/file')
 ```
 
 If require a asar file, make sure there is `package.json` and `main` field or `index.js` / `index.json` / `index.node` in the asar root.
+
+You can also pack `node_modules` into `node_modules.asar` instead of packing the hole project folder into an asar file.
 
 ## Note
 
