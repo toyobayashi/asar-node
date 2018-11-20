@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-require('asar-node')
+require('..')
 const Module = require('module')
 const path = require('path')
 
@@ -24,7 +24,7 @@ function main (argc, argv) {
 
   if (args[0] === '-v' || args[0] === '--version') {
     console.log('node: ' + process.version)
-    console.log('asar-node: ' + require('asar-node/package.json').version)
+    console.log('asar-node: v' + require('../package.json').version)
     return
   }
 
@@ -79,7 +79,7 @@ function main (argc, argv) {
     return
   }
 
-  process.argv = [argv[0]].concat(path.join(process.cwd(), args.slice(i)[0])).concat(args.slice(i + 1))
+  process.argv = [argv[0], path.isAbsolute(args[i]) ? args[i] : path.join(process.cwd(), args[i]), ...args.slice(i + 1)]
 
   Module._preloadModules(preloadRequests)
   Module.runMain()
