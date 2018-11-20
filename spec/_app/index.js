@@ -30,3 +30,10 @@ fs.createReadStream(path.join(__dirname, './subdir/test.js'), 'utf8')
   .on('close', () => {
     console.log(`[index] size: ${size}`)
   })
+
+let size2 = 0
+fs.createReadStream(path.join(__dirname, './package.json'), 'utf8')
+  .on('data', (data) => { size2 += data.length; console.log('[stream]\n' + data) })
+  .on('close', () => {
+    console.log(`[index] size: ${size2}`)
+  })

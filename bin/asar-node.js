@@ -17,7 +17,7 @@ Options:
 function main (argc, argv) {
   const args = argv.slice(2)
 
-  if (args.length === 0 || args[0] === '-h' || args[0] === '--help') {
+  if (args[0] === '-h' || args[0] === '--help') {
     printHelp()
     return
   }
@@ -64,7 +64,18 @@ function main (argc, argv) {
   }
 
   if (!args[i]) {
-    printHelp()
+    if (process.stdin.isTTY) {
+      require('repl').start({
+        prompt: '> ',
+        input: process.stdin,
+        output: process.stdout,
+        terminal: process.stdout.isTTY,
+        useColors: true,
+        useGlobal: true
+      })
+    } else {
+      printHelp()
+    }
     return
   }
 
