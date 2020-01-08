@@ -14,6 +14,27 @@ const fs = require('fs')
 const path = require('path')
 const assert = require('assert')
 
+console.log('[readdirSync]')
+console.log(fs.readdirSync(path.join(__dirname)))
+console.log(fs.readdirSync(path.join(__dirname, './node_modules')))
+console.log(fs.readdirSync(path.join(__dirname, './subdir')))
+console.log(fs.readdirSync(path.join(__dirname, '../_app')))
+try {
+  console.log(fs.readdirSync(path.join(__dirname, './index.js')))
+} catch (err) {
+  console.log(err.message)
+}
+try {
+  console.log(fs.readdirSync(path.join(__dirname, './notexists')))
+} catch (err) {
+  console.log(err.message)
+}
+try {
+  console.log(fs.readdirSync(path.join(__dirname, './notexists/notexists')))
+} catch (err) {
+  console.log(err.message)
+}
+
 const inner = require('./subdir/test').inner
 const out = require('./subdir/test.js').out
 console.log(`[index] ${inner}`)

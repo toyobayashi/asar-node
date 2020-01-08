@@ -1,6 +1,6 @@
 {
   "name": "asar-node",
-  "version": "1.1.6",
+  "version": "1.2.0",
   "description": "Enable require('./path/to/any-node-project.asar') & require('./path/to/any-node-project.asar/any/file'). Or just run asar-node ./path/to/any-node-project.asar",
   "bin": {
     "asar-node": "./bin/asar-node.js"

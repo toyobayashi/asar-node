@@ -1,5 +1,6 @@
 require('..')
-
+const fs = require('fs')
+const path = require('path')
 require('./app')
 
 console.log('=============================\n')
@@ -34,4 +35,24 @@ try {
 }
 require('./app-default-entry-error.asar/_index.js')
 require('./app-pkg-entry-error.asar/test/index.js')
+
+console.log('[readdirSync]')
+console.log(fs.readdirSync(path.join(__dirname, './app.asar')))
+console.log(fs.readdirSync(path.join(__dirname, './app.asar/subdir')))
+try {
+  console.log(fs.readdirSync(path.join(__dirname, './app.asar/index.js')))
+} catch (err) {
+  console.log(err.message)
+}
+try {
+  console.log(fs.readdirSync(path.join(__dirname, './app.asar/notexists')))
+} catch (err) {
+  console.log(err.message)
+}
+try {
+  console.log(fs.readdirSync(path.join(__dirname, './app.asar/notexists/notexists')))
+} catch (err) {
+  console.log(err.message)
+}
+
 console.log('=============================\n')
