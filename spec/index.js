@@ -1,4 +1,7 @@
-require('..')
+const asarNode = require('..')
+asarNode.addAsarToLookupPaths()
+asarNode.register()
+
 const fs = require('fs')
 const path = require('path')
 require('./app')

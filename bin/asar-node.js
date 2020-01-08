@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 
-require('..')
+const asarNode = require('..')
+asarNode.addAsarToLookupPaths()
+asarNode.register()
+
 const Module = require('module')
 const path = require('path')
 

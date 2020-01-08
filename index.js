@@ -1,5 +1,2 @@
-if (process.versions.electron) {
-  throw new Error('asar-node can not be used in Electron.')
-}
-
-require('./lib/module.js')
+exports.addAsarToLookupPaths = require('./lib/lookup.js').addAsarToLookupPaths
+exports.register = require('./lib/register.js').register
