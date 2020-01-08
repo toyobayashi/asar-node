@@ -23,7 +23,8 @@ $ asar-node ./path/to/any-node-project.asar/any/file.node # OK!
 Or
 
 ```js
-require('asar-node')
+require('asar-node').register()
+// Equivalent to require('asar-node/lib/register.js').register()
 
 require('./path/to/any-node-project') // like require a nodejs directory
 // or require('./path/to/any-node-project.asar')
@@ -33,6 +34,22 @@ require('./path/to/any-node-project.asar/any/file')
 If require a asar file, make sure there is `package.json` and `main` field or `index.js` / `index.json` / `index.node` in the asar root.
 
 You can also pack `node_modules` into `node_modules.asar` instead of packing the hole project folder into an asar file.
+
+To let node find modules from `node_modules.asar`, You should
+
+``` js
+const { register, addAsarToLookupPaths } = require('asar-node')
+// Equivalent to 
+// const register = require('asar-node/lib/register.js').register
+// const addAsarToLookupPaths = require('asar-node/lib/lookup.js').addAsarToLookupPaths
+
+register()
+addAsarToLookupPaths()
+
+const Koa = require('koa') // koa is in node_modules.asar
+```
+
+In an electron project, it's unnecessary to call `register()` but you can also call `addAsarToLookupPaths()` to enable `node_modules.asar` support.
 
 ## Note
 
@@ -48,4 +65,3 @@ You can also pack `node_modules` into `node_modules.asar` instead of packing the
 
 * **If your nodejs project use C++ native addons, please unpack it from asar file by specifying `--unpack=*.node` to [asar CLI](https://www.npmjs.com/package/asar)**
 * **Express or Koa serving static file in asar file is not supported, but you can unpack the static file folder.**
-* **`asar-node` can not be used in Electron. It's unnecessary.**
