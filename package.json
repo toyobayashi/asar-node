@@ -1,6 +1,6 @@
 {
   "name": "asar-node",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Enable require('./path/to/any-node-project.asar') & require('./path/to/any-node-project.asar/any/file'). Or just run asar-node ./path/to/any-node-project.asar",
   "bin": {
     "asar-node": "./bin/asar-node.js"
@@ -23,11 +23,8 @@
   "bugs": {
     "url": "https://github.com/toyobayashi/asar-node/issues"
   },
-  "dependencies": {
-    "asar": "^2.0.3",
-    "chromium-pickle-js": "^0.2.0"
-  },
   "devDependencies": {
+    "asar": "^2.0.3",
     "eslint": "^5.9.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",

@@ -1,5 +1,6 @@
 /node_modules
 /spec/_app-express/node_modules
+/spec/out.js
 .DS_Store
 npm-debug.log
 *~
