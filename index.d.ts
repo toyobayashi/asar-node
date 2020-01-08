@@ -1,4 +1,9 @@
-import { addAsarToLookupPaths } from './lib/lookup'
-import { register } from './lib/register'
+export { addAsarToLookupPaths } from './lib/lookup'
+export { register } from './lib/register'
 
-export { addAsarToLookupPaths, register }
+export interface AsarState {
+  lookupAsar: boolean;
+  registered: boolean;
+}
+
+export function getState (): AsarState

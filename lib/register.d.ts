@@ -11,3 +11,5 @@
  * ```
  */ 
 export function register(): void;
+
+export function checkRegisterState (): boolean;
