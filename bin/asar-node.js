@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 
-const asarNode = require('..')
-asarNode.addAsarToLookupPaths()
-asarNode.register()
+require('../lib/autorun/index.js')
 
 const Module = require('module')
 const path = require('path')

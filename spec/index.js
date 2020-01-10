@@ -1,7 +1,4 @@
-const asarNode = require('..')
-asarNode.addAsarToLookupPaths()
-asarNode.register()
-
+require('../lib/autorun/index.js')
 const fs = require('fs')
 const path = require('path')
 require('./app')

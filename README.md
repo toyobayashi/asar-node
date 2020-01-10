@@ -51,6 +51,20 @@ const Koa = require('koa') // koa is in node_modules.asar
 
 In an electron project, it's unnecessary to call `register()` but you can also call `addAsarToLookupPaths()` to enable `node_modules.asar` support.
 
+## Migrate from v1
+
+v1.x
+
+``` js
+require('asar-node')
+```
+
+v2.x
+
+``` js
+require('asar-node/lib/autorun/index')
+```
+
 ## Note
 
 * **Only these fs api functions are available in asar file and you should use absolute path. Also `child_process` api is not supported in asar file.**
