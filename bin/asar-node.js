@@ -80,10 +80,11 @@ function main (argc, argv) {
     return
   }
 
-  process.argv = [argv[0], path.isAbsolute(args[i]) ? args[i] : path.join(process.cwd(), args[i]), ...args.slice(i + 1)]
+  const entry = path.isAbsolute(args[i]) ? args[i] : path.join(process.cwd(), args[i])
+  process.argv = [argv[0], entry, ...args.slice(i + 1)]
 
   Module._preloadModules(preloadRequests)
-  Module.runMain()
+  Module._load(entry, null, true)
 }
 
 main(process.argv.length, process.argv)
