@@ -1,4 +1,6 @@
 require('../lib/autorun/index.js')
+// require('../dist/index').register()
+// require('../dist/index').addAsarToLookupPaths()
 const fs = require('fs')
 const path = require('path')
 require('./app')

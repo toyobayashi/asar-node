@@ -12,4 +12,6 @@
  */ 
 export function register(): void;
 
+export function unregister(): void;
+
 export function checkRegisterState (): boolean;

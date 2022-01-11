@@ -9,5 +9,7 @@ function getState () {
 }
 
 exports.addAsarToLookupPaths = lookup.addAsarToLookupPaths
+exports.removeAsarToLookupPaths = lookup.removeAsarToLookupPaths
 exports.register = register.register
+exports.unregister = register.unregister
 exports.getState = getState

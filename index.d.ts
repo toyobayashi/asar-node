@@ -1,5 +1,5 @@
-export { addAsarToLookupPaths } from './lib/lookup'
-export { register } from './lib/register'
+export { addAsarToLookupPaths, removeAsarToLookupPaths } from './lib/lookup'
+export { register, unregister } from './lib/register'
 
 export interface AsarState {
   lookupAsar: boolean;

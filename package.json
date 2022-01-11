@@ -1,12 +1,14 @@
 {
   "name": "asar-node",
-  "version": "2.1.3",
+  "version": "2.2.0",
   "description": "Enable require('./path/to/any-node-project.asar') & require('./path/to/any-node-project.asar/any/file'). Or just run asar-node ./path/to/any-node-project.asar",
   "bin": {
     "asar-node": "./bin/asar-node.js"
   },
   "scripts": {
-    "test": "asar p ./spec/_app --unpack=*.node ./spec/app.asar && asar p ./spec/_app-default-entry ./spec/app-default-entry.asar && asar p ./spec/_app-default-entry-json ./spec/app-default-entry-json.asar && asar p ./spec/_app-default-entry-node --unpack=*.node ./spec/app-default-entry-node.asar && asar p ./spec/_app-pkg-default-entry ./spec/app-pkg-default-entry.asar && asar p ./spec/_app-pkg-default-entry-json ./spec/app-pkg-default-entry-json.asar && asar p ./spec/_app-pkg-default-entry-node --unpack=*.node ./spec/app-pkg-default-entry-node.asar && asar p ./spec/_app-default-entry-error ./spec/app-default-entry-error.asar && asar p ./spec/_app-pkg-entry ./spec/app-pkg-entry.asar && asar p ./spec/_app-pkg-entry-error ./spec/app-pkg-entry-error.asar && node ./spec/index.js"
+    "test": "asar p ./spec/_app --unpack=*.node ./spec/app.asar && asar p ./spec/_app-default-entry ./spec/app-default-entry.asar && asar p ./spec/_app-default-entry-json ./spec/app-default-entry-json.asar && asar p ./spec/_app-default-entry-node --unpack=*.node ./spec/app-default-entry-node.asar && asar p ./spec/_app-pkg-default-entry ./spec/app-pkg-default-entry.asar && asar p ./spec/_app-pkg-default-entry-json ./spec/app-pkg-default-entry-json.asar && asar p ./spec/_app-pkg-default-entry-node --unpack=*.node ./spec/app-pkg-default-entry-node.asar && asar p ./spec/_app-default-entry-error ./spec/app-default-entry-error.asar && asar p ./spec/_app-pkg-entry ./spec/app-pkg-entry.asar && asar p ./spec/_app-pkg-entry-error ./spec/app-pkg-entry-error.asar && node ./spec/index.js",
+    "build": "node ./script/build.js",
+    "postinstall": "npm run build"
   },
   "keywords": [
     "asar",
@@ -24,12 +26,12 @@
     "url": "https://github.com/toyobayashi/asar-node/issues"
   },
   "devDependencies": {
-    "asar": "^2.0.3",
-    "eslint": "^5.9.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^8.0.0",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0"
+    "asar": "^3.1.0",
+    "eslint": "^8.6.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "webpack": "^5.65.0"
   }
 }

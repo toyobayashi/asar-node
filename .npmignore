@@ -9,3 +9,4 @@ bin/node
 .pairs
 .vscode/
 .eslintrc.json
+.eslintignore
