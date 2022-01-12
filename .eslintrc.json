@@ -2,6 +2,7 @@
   "extends": "standard",
   "globals": {
     "__non_webpack_require__": false,
-    "__webpack_public_path__": false
+    "__webpack_public_path__": false,
+    "__ASAR_NODE_VERSION__": false
   }
 }

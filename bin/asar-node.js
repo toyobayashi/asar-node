@@ -25,7 +25,7 @@ function main (argc, argv) {
 
   if (args[0] === '-v' || args[0] === '--version') {
     console.log('node: ' + process.version)
-    console.log('asar-node: v' + require('../package.json').version)
+    console.log('asar-node: v' + (typeof __ASAR_NODE_VERSION__ !== 'undefined' ? __ASAR_NODE_VERSION__ : require('./package.json').version))
     return
   }
 

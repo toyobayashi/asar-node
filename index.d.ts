@@ -7,3 +7,4 @@ export interface AsarState {
 }
 
 export function getState (): AsarState
+export const version: string

@@ -14,11 +14,14 @@ const createTarget = (entry, needShebang) => {
         type: 'commonjs2'
       }
     },
-    ...(needShebang
-      ? {
-          plugins: [new webpack.BannerPlugin({ banner: '#!/usr/bin/env node' + EOL, raw: true })]
-        }
-      : {})
+    plugins: [
+      new webpack.DefinePlugin({
+        __ASAR_NODE_VERSION__: JSON.stringify(require('../package.json').version)
+      }),
+      ...(needShebang
+        ? [new webpack.BannerPlugin({ banner: '#!/usr/bin/env node' + EOL, raw: true })]
+        : [])
+    ]
   }
 }
 
