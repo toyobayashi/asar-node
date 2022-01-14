@@ -10,3 +10,4 @@ bin/node
 .vscode/
 .eslintrc.json
 .eslintignore
+/test.log

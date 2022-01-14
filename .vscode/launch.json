@@ -9,6 +9,13 @@
       "request": "launch",
       "name": "Test",
       "program": "${workspaceFolder}\\spec\\subdir\\index.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Mocha",
+      "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha.cmd",
+      "program": "${workspaceFolder}\\spec\\asar-spec.js"
     }
   ]
 }
