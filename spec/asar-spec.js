@@ -1586,7 +1586,7 @@ describe('asar package', function () {
     });
   });
 
-  describe('asar protocol', function () {
+  /* describe('asar protocol', function () {
     it('can request a file in package', function (done) {
       const p = path.resolve(asarDir, 'a.asar', 'file1');
       $.get('file://' + p, function (data) {
@@ -1649,7 +1649,7 @@ describe('asar package', function () {
         }
       });
     });
-  });
+  }); */
 
   /* describe('original-fs module', function () {
     const originalFs = require('original-fs');
