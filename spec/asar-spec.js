@@ -2,9 +2,10 @@ require('../lib/autorun/index.js')
 
 const chai = require('chai');
 var dirtyChai = require('dirty-chai');
-chai.use(dirtyChai)
-const expect = chai.expect
-console.log(expect)
+const chaiAsPromised = require('chai-as-promised');
+chai.use(chaiAsPromised);
+chai.use(dirtyChai);
+const expect = chai.expect;
 const ChildProcess = require('child_process');
 const fs = require('fs');
 const path = require('path');
@@ -1447,8 +1448,7 @@ describe('asar package', function () {
 
     describe('util.promisify', function () {
       it('can promisify all fs functions', function () {
-        // const originalFs = require('original-fs');
-        const originalFs = require('fs');
+        const originalFs = require('original-fs');
         const { hasOwnProperty } = Object.prototype;
 
         for (const [propertyName, originalValue] of Object.entries(originalFs)) {
@@ -1521,7 +1521,7 @@ describe('asar package', function () {
         await expect(fs.promises.readdir(dir)).to.be.eventually.rejectedWith(Error, new RegExp(errorName));
       });
 
-      /* it('treats *.asar as normal file', function () {
+      it('treats *.asar as normal file', function () {
         const originalFs = require('original-fs');
         const asar = path.join(asarDir, 'a.asar');
         const content1 = fs.readFileSync(asar);
@@ -1530,7 +1530,7 @@ describe('asar package', function () {
         expect(() => {
           fs.readdirSync(asar);
         }).to.throw(/ENOTDIR/);
-      }); */
+      });
 
       it('is reset to its original value when execSync throws an error', function () {
         process.noAsar = false;
@@ -1651,7 +1651,7 @@ describe('asar package', function () {
     });
   }); */
 
-  /* describe('original-fs module', function () {
+  describe('original-fs module', function () {
     const originalFs = require('original-fs');
 
     it('treats .asar as file', function () {
@@ -1685,7 +1685,7 @@ describe('asar package', function () {
       expect(Object.keys(require('fs'))).to.deep.equal(Object.keys(require('original-fs')));
       expect(Object.keys(require('fs').promises)).to.deep.equal(Object.keys(require('original-fs').promises));
     });
-  }); */
+  });
 
   describe('graceful-fs module', function () {
     const gfs = require('graceful-fs');
