@@ -1215,7 +1215,7 @@ describe('asar package', function () {
         const p = path.join(asarDir, 'a.asar', 'file1');
         fs.access(p, function (err) {
           try {
-            expect(err).to.be.undefined();
+            expect(err).to.be.null();
             done();
           } catch (e) {
             done(e);
