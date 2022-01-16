@@ -1378,16 +1378,16 @@ describe('asar package', function () {
       });
     });
 
-    ifdescribe(process.platform === 'darwin' && process.arch !== 'arm64')('child_process.execFile', function () {
+    ifdescribe(process.platform === 'win32' && process.arch === 'x64')('child_process.execFile', function () {
       const execFile = ChildProcess.execFile;
       const execFileSync = ChildProcess.execFileSync;
-      const echo = path.join(asarDir, 'echo.asar', 'echo');
+      const echo = path.join(asarDir, 'echo.asar', 'echo' + (process.platform === 'win32' ? '.exe' : ''));
 
       it('executes binaries', function (done) {
         execFile(echo, ['test'], function (error, stdout) {
           try {
             expect(error).to.be.null();
-            expect(stdout).to.equal('test\n');
+            expect(stdout.toString().replace(/\r/g, '')).to.equal('test\n');
             done();
           } catch (e) {
             done(e);
@@ -1412,12 +1412,12 @@ describe('asar package', function () {
 
       it('execFileSync executes binaries', function () {
         const output = execFileSync(echo, ['test']);
-        expect(String(output)).to.equal('test\n');
+        expect(String(output).replace(/\r/g, '')).to.equal('test\n');
       });
 
       it('can be promisified', () => {
         return util.promisify(ChildProcess.execFile)(echo, ['test']).then(({ stdout }) => {
-          expect(stdout).to.equal('test\n');
+          expect(stdout.toString().replace(/\r/g, '')).to.equal('test\n');
         });
       });
     });
