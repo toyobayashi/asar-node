@@ -1381,7 +1381,7 @@ describe('asar package', function () {
     ifdescribe(process.platform === 'win32' && process.arch === 'x64')('child_process.execFile', function () {
       const execFile = ChildProcess.execFile;
       const execFileSync = ChildProcess.execFileSync;
-      const echo = path.join(asarDir, 'echo.asar', 'echo' + (process.platform === 'win32' ? '.exe' : ''));
+      const echo = path.join(asarDir, 'echo.asar', 'echo' + (process.platform === 'win32' ? '.cmd' : ''));
 
       it('executes binaries', function (done) {
         execFile(echo, ['test'], function (error, stdout) {
