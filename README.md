@@ -4,23 +4,27 @@ Enable `require('./path/to/any-node-project.asar')` & `require('./path/to/any-no
 
 ## Usage
 
+### CLI
+
 ``` bash
 $ npm install -g asar-node
 ```
 
-Exists `./path/to/any-node-project.asar`
-
 ``` bash
-$ asar-node ./path/to/any-node-project # OK!
-$ asar-node ./path/to/any-node-project.asar # OK!
+$ asar-node ./path/to/any-node-project
+$ asar-node ./path/to/any-node-project.asar
 
-$ asar-node ./path/to/any-node-project.asar/any/file # OK!
-$ asar-node ./path/to/any-node-project.asar/any/file.js # OK!
-$ asar-node ./path/to/any-node-project.asar/any/file.json # OK!
-$ asar-node ./path/to/any-node-project.asar/any/file.node # OK!
+$ asar-node ./path/to/any-node-project.asar/any/file
+$ asar-node ./path/to/any-node-project.asar/any/file.js
+$ asar-node ./path/to/any-node-project.asar/any/file.json
+$ asar-node ./path/to/any-node-project.asar/any/file.node
 ```
 
-Or
+### Programming
+
+``` bash
+$ npm install asar-node
+```
 
 ```js
 require('asar-node').register()
@@ -51,7 +55,9 @@ const Koa = require('koa') // koa is in node_modules.asar
 
 In an electron project, it's unnecessary to call `register()` but you can also call `addAsarToLookupPaths()` to enable `node_modules.asar` support.
 
-## Migrate from v1
+To disable asar support, you can set `process.noAsar = true` or `ELECTRON_NO_ASAR` environmnet variable.
+
+## Migration
 
 v1.x
 
@@ -59,23 +65,29 @@ v1.x
 require('asar-node')
 ```
 
-v2.x
+v2.x / v3.x
 
 ``` js
 require('asar-node/lib/autorun/index')
 ```
 
+## Available APIs inside asar
+
+* `fs.readFileSync` / `fs.readFile` / `fs.promises.readFile`
+* `fs.statSync` / `fs.stat` / `fs.promises.stat`
+* `fs.lstatSync` / `fs.lstat` / `fs.promises.lstat`
+* `fs.readdirSync` / `fs.readdir` / `fs.promises.readdir`
+* `fs.existsSync` / `fs.exists`
+* `fs.accessSync` / `fs.access` / `fs.promises.access`
+* `fs.realpathSync` / `fs.realpath` / `fs.realpathSync.native` / `fs.realpath.native` / `fs.promises.realpath`
+* `fs.copyFileSync` / `fs.copyFile` / `fs.promises.copyFile`
+* `fs.openSync` / `fs.open` / `fs.promises.open`
+* `fs.createReadStream`
+* `child_process.execFile`
+* `child_process.execFileSync`
+* `child_process.fork`
+
 ## Note
-
-* **Only these fs api functions are available in asar file and you should use absolute path. Also `child_process` api is not supported in asar file.**
-
-  * fs.readFileSync()
-  * fs.createReadStream()
-  * fs.statSync()
-  * fs.lstatSync()
-  * fs.readdirSync()
-  * fs.existsSync()
-  * fs.realpathSync()
 
 * **If your nodejs project use C++ native addons, please unpack it from asar file by specifying `--unpack=*.node` to [asar CLI](https://www.npmjs.com/package/asar)**
 * **Express or Koa serving static file in asar file is not supported, but you can unpack the static file folder.**
