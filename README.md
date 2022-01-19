@@ -73,6 +73,7 @@ require('asar-node/lib/autorun/index')
 
 ## Available APIs inside asar
 
+* `require('original-fs')`
 * `fs.readFileSync` / `fs.readFile` / `fs.promises.readFile`
 * `fs.statSync` / `fs.stat` / `fs.promises.stat`
 * `fs.lstatSync` / `fs.lstat` / `fs.promises.lstat`
