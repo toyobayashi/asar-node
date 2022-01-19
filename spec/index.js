@@ -3,9 +3,24 @@ require('../lib/autorun/index.js')
 // require('../dist/index').addAsarToLookupPaths()
 const fs = require('fs')
 const path = require('path')
-require('./app')
+const assert = require('assert')
 
-console.log('=============================\n')
+function deleteCache () {
+  for (const k in require.cache) {
+    if (k.indexOf('app.asar') !== -1) {
+      delete require.cache[k]
+    }
+  }
+}
+
+require('./app')
+console.log('\n======== DELETE CACHE ========\n')
+deleteCache()
+require('./app.asar')
+console.log('\n================\n')
+require('./_app-node-modules-asar/index.js')
+
+console.log('\n================\n')
 require('./app-default-entry')
 require('./app-default-entry.asar')
 console.log(require('./app-default-entry-json'))
@@ -24,37 +39,16 @@ if (process.platform === 'win32') {
   console.log(require('./app-pkg-default-entry-node.asar'))
 }
 
-require('./app-pkg-entry.asar')
-try {
+assert.throws(() => {
   require('./app-default-entry-error')
-} catch (error) {
-  console.log(error.message)
-}
-try {
+})
+
+require('./app-pkg-entry.asar')
+assert.throws(() => {
+  require('./app-default-entry-error')
+})
+assert.throws(() => {
   require('./app-pkg-entry-error.asar')
-} catch (error) {
-  console.log(error.message)
-}
+})
 require('./app-default-entry-error.asar/_index.js')
 require('./app-pkg-entry-error.asar/test/index.js')
-
-console.log('[readdirSync]')
-console.log(fs.readdirSync(path.join(__dirname, './app.asar')))
-console.log(fs.readdirSync(path.join(__dirname, './app.asar/subdir')))
-try {
-  console.log(fs.readdirSync(path.join(__dirname, './app.asar/index.js')))
-} catch (err) {
-  console.log(err.message)
-}
-try {
-  console.log(fs.readdirSync(path.join(__dirname, './app.asar/notexists')))
-} catch (err) {
-  console.log(err.message)
-}
-try {
-  console.log(fs.readdirSync(path.join(__dirname, './app.asar/notexists/notexists')))
-} catch (err) {
-  console.log(err.message)
-}
-
-console.log('=============================\n')
