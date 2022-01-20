@@ -3,6 +3,7 @@
   "globals": {
     "__non_webpack_require__": false,
     "__webpack_public_path__": false,
-    "__ASAR_NODE_VERSION__": false
+    "__ASAR_NODE_VERSION__": false,
+    "ASAR_NODE_FORK_ENTRY": false
   }
 }

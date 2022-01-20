@@ -1,4 +1,5 @@
 require('../lib/autorun/index.js')
+// require('../dist/autorun.js')
 
 const chai = require('chai');
 var dirtyChai = require('dirty-chai');

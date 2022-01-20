@@ -140,22 +140,40 @@ require('asar-node/lib/autorun/index')
   import 'asar-node/dist/autorun-lookup.js' // 1KB minified
   ```
 
+* `node_modules/asar-node/dist/fork.js`
+
+  `child_process.fork()` entry for bundlers. Copy it to your output path.
+
+  ```js
+  // webpack.config.js
+  // copy node_modules/asar-node/dist/fork.js -> /path/to/fork.js
+  const webpack = require('webpack')
+
+  module.exports = {
+    plugins: [
+      new webpack.DefinePlugin({
+        ASAR_NODE_FORK_ENTRY: '/path/to/fork.js'
+      })
+    ]
+  }
+  ``` 
+
 ## Available APIs inside asar
 
-* `require('original-fs')`
-* `fs.readFileSync` / `fs.readFile` / `fs.promises.readFile`
-* `fs.statSync` / `fs.stat` / `fs.promises.stat`
-* `fs.lstatSync` / `fs.lstat` / `fs.promises.lstat`
-* `fs.readdirSync` / `fs.readdir` / `fs.promises.readdir`
-* `fs.existsSync` / `fs.exists`
-* `fs.accessSync` / `fs.access` / `fs.promises.access`
-* `fs.realpathSync` / `fs.realpath` / `fs.realpathSync.native` / `fs.realpath.native` / `fs.promises.realpath`
-* `fs.copyFileSync` / `fs.copyFile` / `fs.promises.copyFile`
-* `fs.openSync` / `fs.open` / `fs.promises.open`
-* `fs.createReadStream`
-* `child_process.execFile`
-* `child_process.execFileSync`
-* `child_process.fork`
+- `require('original-fs')`
+- `fs.readFileSync` / `fs.readFile` / `fs.promises.readFile`
+- `fs.statSync` / `fs.stat` / `fs.promises.stat`
+- `fs.lstatSync` / `fs.lstat` / `fs.promises.lstat`
+- `fs.readdirSync` / `fs.readdir` / `fs.promises.readdir`
+- `fs.existsSync` / `fs.exists`
+- `fs.accessSync` / `fs.access` / `fs.promises.access`
+- `fs.realpathSync` / `fs.realpath` / `fs.realpathSync.native` / `fs.realpath.native` / `fs.promises.realpath`
+- `fs.copyFileSync` / `fs.copyFile` / `fs.promises.copyFile`
+- `fs.openSync` / `fs.open` / `fs.promises.open`
+- `fs.createReadStream`
+- `child_process.execFile`
+- `child_process.execFileSync`
+- **`child_process.fork`** - Predefine `ASAR_NODE_FORK_ENTRY` if you are using bundler
 
 ## Note
 
