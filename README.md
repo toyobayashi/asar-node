@@ -71,6 +71,75 @@ v2.x / v3.x
 require('asar-node/lib/autorun/index')
 ```
 
+## Standalone builds
+
+* `node_modules/asar-node/dist/index.js`
+
+  Library bundle.
+
+  ```js
+  const {
+    register,
+    addAsarToLookupPaths
+  } = require('asar-node/dist/index.js')
+  // Equivalent to require('asar-node')
+  ```
+
+* `node_modules/asar-node/dist/asar-node.js`
+
+  CLI bundle.
+
+  ```bash
+  $ node ./node_modules/asar-node/dist/asar-node.js [...]
+  # Equivalent to
+  $ asar-node [...]
+  ```
+
+* `node_modules/asar-node/dist/autorun.js` 
+
+  Preload bundle.
+
+  ```bash
+  $ node -r ./node_modules/asar-node/dist/autorun.js [...]
+  ```
+
+  ```js
+  require('asar-node/dist/autorun.js')
+  require('./path/to/app.asar/index.js')
+  ```
+
+  ```js
+  // app.asar/index.js
+  require('mod') // mod could be in node_modules.asar
+  ```
+
+* `node_modules/asar-node/dist/autorun-register.js` 
+
+  Preload bundle without `node_modules.asar` support.
+
+  ```bash
+  $ node -r ./node_modules/asar-node/dist/autorun-register.js [...]
+  ```
+
+  ```js
+  require('asar-node/dist/autorun-register.js')
+  require('./path/to/app.asar/index.js')
+  ```
+
+  ```js
+  // app.asar/index.js
+  require('mod') // throws error if mod is in node_modules.asar
+  ```
+
+* `node_modules/asar-node/dist/autorun-lookup.js`
+
+  Preload bundle with `node_modules.asar` support only, useful for electron environment.
+
+  ```js
+  // webpack electron target
+  import 'asar-node/dist/autorun-lookup.js' // 1KB minified
+  ```
+
 ## Available APIs inside asar
 
 * `require('original-fs')`
@@ -92,3 +161,4 @@ require('asar-node/lib/autorun/index')
 
 * **If your nodejs project use C++ native addons, please unpack it from asar file by specifying `--unpack=*.node` to [asar CLI](https://www.npmjs.com/package/asar)**
 * **Express or Koa serving static file in asar file is not supported, but you can unpack the static file folder.**
+* **Node.js ESM module is not support**
