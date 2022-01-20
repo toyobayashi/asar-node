@@ -3,7 +3,6 @@ const log = (...args) => {
 }
 
 log(__filename)
-log(__dirname)
 
 const fs = require('fs')
 const path = require('path')

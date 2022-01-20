@@ -16,7 +16,6 @@ const log = (...args) => {
 }
 
 log(__filename)
-log(__dirname)
 
 module.exports = 'out'`)
 

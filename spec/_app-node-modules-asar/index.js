@@ -2,7 +2,6 @@ const log = (...args) => {
   console.log('[_app-node-modules-asar/index.js]', ...args)
 }
 log(__filename)
-log(__dirname)
 
 const assert = require('assert')
 const fs = require('fs')
