@@ -39,9 +39,9 @@ webpack([
   createTarget({
     'autorun-register': [path.join(__dirname, '../lib/autorun/register.js')]
   }, {}, false),
-  createTarget({
-    fork: [path.join(__dirname, '../lib/fork.js')]
-  }, { ASAR_NODE_FORK_ENTRY: '__filename' }, false),
+  // createTarget({
+  //   fork: [path.join(__dirname, '../lib/fork.js')]
+  // }, { ASAR_NODE_FORK_ENTRY: '__filename' }, false),
   createTarget({
     'asar-node': [path.join(__dirname, '../bin/asar-node.js')]
   }, {}, true)

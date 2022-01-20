@@ -140,24 +140,6 @@ require('asar-node/lib/autorun/index')
   import 'asar-node/dist/autorun-lookup.js' // 1KB minified
   ```
 
-* `node_modules/asar-node/dist/fork.js`
-
-  `child_process.fork()` entry for bundlers. Copy it to your output path.
-
-  ```js
-  // webpack.config.js
-  // copy node_modules/asar-node/dist/fork.js -> /path/to/fork.js
-  const webpack = require('webpack')
-
-  module.exports = {
-    plugins: [
-      new webpack.DefinePlugin({
-        ASAR_NODE_FORK_ENTRY: '/path/to/fork.js'
-      })
-    ]
-  }
-  ``` 
-
 ## Available APIs inside asar
 
 - `require('original-fs')`
@@ -173,7 +155,6 @@ require('asar-node/lib/autorun/index')
 - `fs.createReadStream`
 - `child_process.execFile`
 - `child_process.execFileSync`
-- **`child_process.fork`** - Predefine `ASAR_NODE_FORK_ENTRY` if you are using bundler
 
 ## Note
 

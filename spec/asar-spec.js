@@ -1313,7 +1313,7 @@ describe('asar package', function () {
       });
     });
 
-    describe('child_process.fork', function () {
+    /* describe('child_process.fork', function () {
 
       it('opens a normal js file', function (done) {
         const child = ChildProcess.fork(path.join(asarDir, 'a.asar', 'ping.js'));
@@ -1341,7 +1341,7 @@ describe('asar package', function () {
         });
         child.send(file);
       });
-    });
+    }); */
 
     describe('child_process.exec', function () {
       const echo = path.join(asarDir, 'echo.asar', 'echo');
@@ -1544,7 +1544,7 @@ describe('asar package', function () {
 
     describe('process.env.ELECTRON_NO_ASAR', function () {
 
-      it('disables asar support in forked processes', function (done) {
+      /* it('disables asar support in forked processes', function (done) {
         const forked = ChildProcess.fork(path.join(__dirname, 'fixtures', 'module', 'no-asar.js'), [], {
           env: {
             ELECTRON_NO_ASAR: true
@@ -1559,7 +1559,7 @@ describe('asar package', function () {
             done(e);
           }
         });
-      });
+      }); */
 
       it('disables asar support in spawned processes', function (done) {
         const spawned = ChildProcess.spawn(process.execPath, [path.join(__dirname, 'fixtures', 'module', 'no-asar.js')], {
@@ -1661,13 +1661,13 @@ describe('asar package', function () {
       expect(stats.isFile()).to.be.true();
     });
 
-    ifit(true)('is available in forked scripts', async function () {
+    /* ifit(true)('is available in forked scripts', async function () {
       const child = ChildProcess.fork(path.join(fixtures, 'module', 'original-fs.js'));
       const message = emittedOnce(child, 'message');
       child.send('message');
       const [msg] = await message;
       expect(msg).to.equal('object');
-    });
+    }); */
 
     it('can be used with streams', () => {
       originalFs.createReadStream(path.join(asarDir, 'a.asar'));
