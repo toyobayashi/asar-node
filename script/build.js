@@ -30,6 +30,15 @@ webpack([
     index: [path.join(__dirname, '../index.js')]
   }, false),
   createTarget({
+    autorun: [path.join(__dirname, '../lib/autorun/index.js')]
+  }, false),
+  createTarget({
+    'autorun-lookup': [path.join(__dirname, '../lib/autorun/lookup.js')]
+  }, false),
+  createTarget({
+    'autorun-register': [path.join(__dirname, '../lib/autorun/register.js')]
+  }, false),
+  createTarget({
     'asar-node': [path.join(__dirname, '../bin/asar-node.js')]
   }, true)
 ], (err, stats) => {
