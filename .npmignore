@@ -11,3 +11,4 @@ bin/node
 .eslintrc.json
 .eslintignore
 /test.log
+/script
