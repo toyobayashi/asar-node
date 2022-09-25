@@ -1,6 +1,6 @@
 {
   "name": "asar-node",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Enable require('./path/to/any-node-project.asar') & require('./path/to/any-node-project.asar/any/file'). Or just run asar-node ./path/to/any-node-project.asar",
   "bin": {
     "asar-node": "./bin/asar-node.js"
@@ -32,9 +32,9 @@
     "chai-as-promised": "^7.1.1",
     "dirty-chai": "^2.0.1",
     "eslint": "^8.6.0",
-    "eslint-config-standard": "^16.0.3",
+    "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-n": "^15.3.0",
     "eslint-plugin-promise": "^6.0.0",
     "mocha": "^5.2.0",
     "temp": "^0.9.4",

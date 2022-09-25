@@ -10,8 +10,8 @@
  * require('./path/to/file.asar/subdir/addon.node')
  * ```
  */ 
-export function register(): void;
+export declare function register(): void;
 
-export function unregister(): void;
+export declare function unregister(): void;
 
-export function checkRegisterState (): boolean;
+export declare function checkRegisterState (): boolean;

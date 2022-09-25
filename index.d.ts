@@ -1,10 +1,10 @@
 export { addAsarToLookupPaths, removeAsarToLookupPaths } from './lib/lookup'
 export { register, unregister } from './lib/register'
 
-export interface AsarState {
+export declare interface AsarState {
   lookupAsar: boolean;
   registered: boolean;
 }
 
-export function getState (): AsarState
-export const version: string
+export declare function getState (): AsarState
+export declare const version: string
